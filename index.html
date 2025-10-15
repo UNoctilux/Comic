@@ -1,0 +1,84 @@
+<html>
+<head>
+  <title>Comic</title>
+  <meta charset="utf-8">
+  <meta name="description" content="trabajo">
+  <meta name="languaje" content="es">
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+ 
+</head>
+<body>
+ <header>
+  <div class="container">
+  <h1>El origen...</h1>
+  </div>
+ </header>
+  <main>
+    <section class="logo-section">
+      <div class="container">
+        <div id="comic"></div> <!-- Contenedor de viñeta -->
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="social">
+        <p>Seguinos en nuestras redes sociales para ENTERARTE DE
+LA PROXIMA ACTUALIZACIÓN Y DESCUBRIR como continua la historia!</p>
+        <ul>
+          <li><a href="#">@Capresse.ex3</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÓN SUBIR -->
+  <button id="btnSubir" title="Volver arriba">↑</button>
+
+  <!-- SCRIPT -->
+  <script>
+    // ==== CÓMIC ====
+    const startDate = new Date("2025-10-15");
+    const today = new Date();
+    const weeksPassed = Math.floor((today - startDate) / (1000*60*60*24*7)) + 1;
+
+    const comicDiv = document.getElementById("comic");
+    const img = document.createElement("img");
+
+    if (weeksPassed < 1) {
+      img.src = "img/anuncio.png";
+      img.alt = "Anuncio de lanzamiento";
+    } else if (weeksPassed === 1) {
+      img.src = "img/vin1.jpg";
+      img.alt = "Viñeta 1";
+    } else {
+      img.src = "img/anuncio.png";
+      img.alt = "Anuncio de la próxima parte";
+    }
+
+    comicDiv.appendChild(img);
+
+    // ==== BOTÓN SUBIR ====
+    const btnSubir = document.getElementById("btnSubir");
+
+    // Mostrar botón al hacer scroll
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        btnSubir.classList.add("visible");
+      } else {
+        btnSubir.classList.remove("visible");
+      }
+    });
+
+    // Volver arriba al hacer clic
+    btnSubir.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
