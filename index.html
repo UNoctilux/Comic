@@ -42,43 +42,49 @@ LA PROXIMA ACTUALIZACIÓN Y DESCUBRIR como continua la historia!</p>
 
   <!-- SCRIPT -->
   <script>
-    // ==== CÓMIC ====
-    const startDate = new Date("2025-10-15");
-    const today = new Date();
-    const weeksPassed = Math.floor((today - startDate) / (1000*60*60*24*7)) + 1;
+  // ==== CÓMIC ====
+  const startDate = new Date("2025-10-15");
+  const today = new Date();
+  const weeksPassed = Math.floor((today - startDate) / (1000 * 60 * 60 * 24 * 7)) + 1;
 
-    const comicDiv = document.getElementById("comic");
+  const comicDiv = document.getElementById("comic");
+  comicDiv.innerHTML = "";
+
+  function crearImg(src, alt) {
     const img = document.createElement("img");
+    img.src = src;
+    img.alt = alt;
+    return img;
+  }
 
-    if (weeksPassed < 1) {
-      img.src = "img/anuncio.png";
-      img.alt = "Anuncio de lanzamiento";
-    } else if (weeksPassed === 1) {
-      img.src = "img/vin1.png";
-      img.alt = "Viñeta 1";
+  // Mostrar viñetas según semana
+  if (weeksPassed < 1) {
+    comicDiv.appendChild(crearImg("img/anuncio.png", "Anuncio de lanzamiento"));
+  } else if (weeksPassed === 1) {
+    comicDiv.appendChild(crearImg("img/vin1.png", "Viñeta 1"));
+    comicDiv.appendChild(crearImg("img/vin2.png", "Viñeta 2"));
+  } else if (weeksPassed === 2) {
+    comicDiv.appendChild(crearImg("img/vin3.png", "Viñeta 3"));
+    comicDiv.appendChild(crearImg("img/vin4.png", "Viñeta 4"));
+  } else {
+    comicDiv.appendChild(crearImg("img/anuncio.png", "Anuncio de la próxima parte"));
+  }
+
+  // ==== BOTÓN SUBIR ====
+  const btnSubir = document.getElementById("btnSubir");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      btnSubir.classList.add("visible");
     } else {
-      img.src = "img/anuncio.png";
-      img.alt = "Anuncio de la próxima parte";
+      btnSubir.classList.remove("visible");
     }
+  });
 
-    comicDiv.appendChild(img);
+  btnSubir.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
 
-    // ==== BOTÓN SUBIR ====
-    const btnSubir = document.getElementById("btnSubir");
-
-    // Mostrar botón al hacer scroll
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        btnSubir.classList.add("visible");
-      } else {
-        btnSubir.classList.remove("visible");
-      }
-    });
-
-    // Volver arriba al hacer clic
-    btnSubir.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
 </body>
 </html>
