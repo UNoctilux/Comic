@@ -61,9 +61,10 @@
     comicDiv.appendChild(crearImg("vin2.png", "Viñeta 2"));
   } 
   else if (weeksPassed >= 2) {
-    for (let i = 0; i <= 3; i++) {
-      comicDiv.appendChild(crearImg(`COMICPARTEDOS.H${i}.PNG`, `Parte dos H${i}`));
-    }
+    comicDiv.appendChild(crearImg("COMICPARTEDOS.H0.PNG", "Parte dos H0"));
+    comicDiv.appendChild(crearImg("COMICPARTEDOS.H1.PNG", "Parte dos H1"));
+    comicDiv.appendChild(crearImg("COMICPARTEDOS.H2.PNG", "Parte dos H2"));
+    comicDiv.appendChild(crearImg("COMICPARTEDOS.H3.PNG", "Parte dos H3"));
   }
 
   // ==== BOTÓN SUBIR ====
