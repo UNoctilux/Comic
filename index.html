@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <title>Comic</title>
   <meta charset="utf-8">
   <meta name="description" content="trabajo">
-  <meta name="language" content="es">
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -20,8 +19,16 @@
 
   <main>
     <section class="logo-section">
-      <div class="container">
-        <div id="comic"></div>
+      <div class="container" id="comic">
+        <!-- Viñetas Parte 1 -->
+        <img src="vin1.png" alt="Viñeta 1">
+        <img src="vin2.png" alt="Viñeta 2">
+
+        <!-- Parte 2 -->
+        <img src="COMICPARTEDOS.H0.PNG" alt="Parte dos H0">
+        <img src="COMICPARTEDOS.H1.PNG" alt="Parte dos H1">
+        <img src="COMICPARTEDOS.H2.PNG" alt="Parte dos H2">
+        <img src="COMICPARTEDOS.H3.PNG" alt="Parte dos H3">
       </div>
     </section>
   </main>
@@ -34,39 +41,10 @@
     </div>
   </footer>
 
+  <!-- Botón para volver arriba -->
   <button id="btnSubir" title="Volver arriba">↑</button>
 
   <script>
-  // ==== CÓMIC ====
-  const startDate = new Date("2025-10-15");
-  const today = new Date();
-  const weeksPassed = Math.floor((today - startDate) / (1000 * 60 * 60 * 24 * 7)) + 1;
-
-  const comicDiv = document.getElementById("comic");
-  comicDiv.innerHTML = "";
-
-  function crearImg(src, alt) {
-    const img = document.createElement("img");
-    img.src = src;
-    img.alt = alt;
-    return img;
-  }
-
-  // ==== LÓGICA DE PUBLICACIÓN ====
-  if (weeksPassed < 1) {
-    comicDiv.appendChild(crearImg("img/anuncio.png", "Anuncio de lanzamiento"));
-  } 
-  else if (weeksPassed === 1) {
-    comicDiv.appendChild(crearImg("vin1.png", "Viñeta 1"));
-    comicDiv.appendChild(crearImg("vin2.png", "Viñeta 2"));
-  } 
-  else if (weeksPassed >= 2) {
-    comicDiv.appendChild(crearImg("COMICPARTEDOS.H0.PNG", "Parte dos H0"));
-    comicDiv.appendChild(crearImg("COMICPARTEDOS.H1.PNG", "Parte dos H1"));
-    comicDiv.appendChild(crearImg("COMICPARTEDOS.H2.PNG", "Parte dos H2"));
-    comicDiv.appendChild(crearImg("COMICPARTEDOS.H3.PNG", "Parte dos H3"));
-  }
-
   // ==== BOTÓN SUBIR ====
   const btnSubir = document.getElementById("btnSubir");
 
@@ -83,4 +61,4 @@
   });
   </script>
 </body>
-  </html>
+</html>
